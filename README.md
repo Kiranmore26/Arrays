@@ -25,12 +25,22 @@ public class Demo2 {
 	// Method to sort an array in ascending order
 	public int[] ascending()
 	{
+		int temp;
 		int value[] = accept();
-		Arrays.sort(value);
 		System.out.println("Your Data is Sorted in Ascending Order: ");
 		for (int i = 0; i < value.length; i++) 
 		{
-			System.out.print(value[i] + " ");
+			for(int j=0+i;j<value.length;j++)
+			{
+				if(value[i]>value[j])
+				{
+					//swapping of numbers
+					temp=value[i];
+					value[i]=value[j];
+					value[j]=temp;
+				}
+			}
+			System.out.print(value[i]+" ");
 		}
 		System.out.println(" ");
 		return value;
@@ -40,19 +50,22 @@ public class Demo2 {
 	// Method to sort an array in descending order
 	public int[] descending()
 	{
+		int temp;
 		int value[] = ascending();  // Reusing the ascending() method
-		Arrays.sort(value);
-		for (int i = 0; i < value.length / 2; i++)
-		{
-			// Swap elements to reverse the order
-			int temp = value[i];
-			value[i] = value[value.length - 1 - i];
-			value[value.length - 1 - i] = temp;
-		}
 		System.out.println("Your Data is Sorted in Descending Order: ");
 		for (int i = 0; i < value.length; i++) 
 		{
-			System.out.print(value[i] + " ");
+			for(int j=0+i;j<value.length;j++)
+			{
+				if(value[i]<value[j])
+				{
+					//swapping of numbers
+					temp=value[i];
+					value[i]=value[j];
+					value[j]=temp;
+				}
+			}
+			System.out.print(value[i]+" ");
 		}
 		System.out.println(" ");
 		return value;
@@ -64,7 +77,7 @@ public class Demo2 {
 	{
 		int value[] = descending();  // Reusing the descending() method
 		int largest = value[0];
-		for (int i = 1; i < value.length; i++) 
+		for (int i = 0; i < value.length; i++) 
 		{
 			if (value[i] > largest) 
 			{
@@ -81,7 +94,7 @@ public class Demo2 {
 	{
 		int value[] = largest();  // Reusing the largest() method
 		int smallest = value[0];
-		for (int i = 1; i < value.length; i++)
+		for (int i = 0; i < value.length; i++)
 		{
 			if (value[i] < smallest)
 			{
@@ -97,3 +110,4 @@ public class Demo2 {
 		d.smallest();
 	}
 }
+
